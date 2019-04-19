@@ -17,7 +17,7 @@ massive(CONNECTION_STRING)
     app.get("/api/houses", controller.getHouses);
     // app.get("/api/products/:id", products_controller.getOne);
     // app.put("/api/products/:id", products_controller.update);
-    // app.delete("/api/products/:id", products_controller.delete);
+    app.delete("/api/houses/:id", controller.deleteHouse);
 
 
 app.listen(SERVER_PORT, () => console.log(`Listening on ${SERVER_PORT}`));
