@@ -3,16 +3,19 @@ import React, { Component } from 'react';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Header from './Components/Header/Header';
 import Wizard from './Components/Wizard/Wizard';
+import {HashRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import routes from "./routes";  
 import './App.css';
 
 class App extends Component {
   render() {
     return (
+      <Router>
       <div className="App">
-        <Dashboard />
         <Header />
-        <Wizard />
+        {routes}
       </div>
+      </Router>
     );
   }
 }
