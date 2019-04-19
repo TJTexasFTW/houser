@@ -9,14 +9,16 @@ module.exports = {
     //     return res.status(200).send(treasure);
     //   },
 
-    // addUserTreasure: async (req, res) => {
-    //     //Destructure treasureURL from req.body and id from req.session.user
-    //     let {treasureURL} = req.body;
-    //     let {id} = req.session.user;
+    addHouse: async (req, res) => {
+        //Destructure treasureURL from req.body and id from req.session.user
+        let {name, address, city, state, zipcode} = req.body;
+        console.log("CONTROLLER:", name, address, city)
+        // let {id} = req.session.user;
         
-    //     const userTreasure = await req.app.get('db').add_user_treasure([treasureURL, id]);
-    //     return res.status(200).send(userTreasure);
-    //   },
+        const newHouse = await req.app.get('db')
+        .add_house([name, address, city, state, zipcode]);
+        return res.status(200).send(newHouse);
+      },
 
       getHouses: async (req, res) => {        
         const getAllHouses = await req.app.get('db').get_all_houses();
